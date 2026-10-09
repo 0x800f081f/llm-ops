@@ -14,8 +14,6 @@ spec:
     repoURL: https://nvidia.github.io/k8s-device-plugin
     chart: nvidia-device-plugin
     targetRevision: "0.12.0"
-    helm:
-      releaseName: nvidia-device-plugin
   destination:
     server: https://kubernetes.default.svc
     namespace: gpu-operator

@@ -1,17 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: monitoring
+  name: traefik
   namespace: argocd
 spec:
   project: default
   sources:
-    - repoURL: https://prometheus-community.github.io/helm-charts
-      chart: kube-prometheus-stack
-      targetRevision: 83.6.0
+    - repoURL: https://traefik.github.io/charts
+      chart: traefik
+      targetRevision: 41.7.1
+      helm:
+        valueFiles:
+          - $values/values.yaml
+    - repoURL: https://github.com/0x800f081f/llm-ops.git
+      path: traefik
+      ref: values
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: traefik
   syncPolicy:
     automated:
       prune: true
