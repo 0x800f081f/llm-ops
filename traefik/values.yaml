@@ -10,8 +10,10 @@ gateway:
   listeners:
     web:
       port: 80
+      protocol: HTTP
     websecure:
       port: 443
+      protocol: HTTPS
 service:
   type: NodePort
 ports:
