@@ -11,9 +11,8 @@ spec:
       targetRevision: 41.7.1
       helm:
         valueFiles:
-          - $values/values.yaml
+          - $values/traefik/values.yaml
     - repoURL: https://github.com/0x800f081f/llm-ops.git
-      path: traefik
       ref: values
   destination:
     server: https://kubernetes.default.svc
