@@ -11,3 +11,12 @@ gateway:
     web:
       namespacePolicy:
         from: All
+ports:
+  web:
+    port: 80
+    nodePort: 30080
+  websecure:
+    port: 443
+    nodePort: 30443
+service:
+  type: NodePort
