@@ -3,6 +3,11 @@ ingressRoute:
     enabled: true
     entryPoints:
       - web
+gateway:
+  listeners:
+    web:
+      namespacePolicy:
+        from: All
 providers:
   kubernetesGateway:
     enabled: true
