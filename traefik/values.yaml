@@ -11,4 +11,4 @@ service:
 ports:
   web:
     port: 8000
-    nodePort: 80
+    nodePort: 30080
