@@ -14,5 +14,7 @@ persistence:
     helm.sh/resource-policy: keep
 ingress:
   enabled: false
+pipelines:
+  enabled: false
 extraEnvVars:
   ENABLE_DB_MIGRATIONS: 'true'
