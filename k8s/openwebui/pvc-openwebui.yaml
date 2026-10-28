@@ -1,0 +1,29 @@
+# pv-pvc.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: openwebui-pv
+  namespace: openwebui
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  # WICHTIG: Modelldateien überleben das Löschen von PVC/Pod
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /mnt/front/openwebui
+    type: DirectoryOrCreate     # legt den Ordner auf dem Host an, falls fehlt
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openwebui-pvc
+  namespace: openwebui
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  volumeName: openwebui-pv     # explizit an diesen PV binden
