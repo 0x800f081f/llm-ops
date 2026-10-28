@@ -1,4 +1,6 @@
 replicaCount: 1
+ollama:
+  enabled: false
 websocket:
   enabled: true
   manager: ''
