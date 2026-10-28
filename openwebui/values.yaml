@@ -1,0 +1,16 @@
+replicaCount: 1
+websocket:
+  enabled: true
+  manager: ''
+  redis:
+    enabled: false
+persistence:
+  enabled: true
+  existingClaim: "openwebui-pvc"
+  size: 5Gi
+  annotations:
+    helm.sh/resource-policy: keep
+ingress:
+  enabled: false
+extraEnvVars:
+  ENABLE_DB_MIGRATIONS: 'true'
